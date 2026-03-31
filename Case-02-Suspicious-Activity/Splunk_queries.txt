@@ -1,0 +1,32 @@
+# Failed Logins per IP
+index=main sourcetype=windows_test_logs EventCode=4625
+| stats count as FailedLogins by src_ip
+
+# Successful Logins per IP
+index=main sourcetype=windows_test_logs EventCode=4624
+| stats count as SuccessfulLogins by src_ip
+
+# Failed vs Successful Correlation
+index=main sourcetype=windows_test_logs (EventCode=4624 OR EventCode=4625)
+| stats count(eval(EventCode=4625)) as FailedLogins
+        count(eval(EventCode=4624)) as SuccessfulLogins
+        by src_ip, user
+
+# All activity for user tester
+index=main sourcetype=windows_test_logs user="test"
+
+# Failed logins for tester by IP
+index=main sourcetype=windows_test_logs EventCode=4625 user="test"
+| stats count as FailedLogins by src_ip
+
+# Failed logins per hour
+index=main sourcetype=windows_test_logs EventCode=4625
+| bin _time span=1h
+| stats count as FailedLogins by _time, src_ip
+
+# Peak attack time
+index=main sourcetype=windows_test_logs EventCode=4625
+| bin _time span=1h
+| stats count as FailedLogins by _time
+| sort - FailedLogins
+| head 1

@@ -1,0 +1,6 @@
+192.168.1.20 Failed login for user test
+192.168.1.20 Failed login for user test
+192.168.1.20 Successful login for user test
+10.0.0.5 Failed login for user user1
+10.0.0.5 Successful login for user user1
+192.168.1.10 Failed login for user admin

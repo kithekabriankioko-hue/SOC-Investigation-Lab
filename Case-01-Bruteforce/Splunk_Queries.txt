@@ -1,0 +1,15 @@
+# Count failed and successful logons
+index=main sourcetype="windows_test_logs" (EventCode=4625 OR EventCode=4624)
+| stats count by EventCode
+
+# Count per Source IP
+index=main sourcetype="windows_test_logs" (EventCode=4625 OR EventCode=4624)
+| stats count by src_ip, EventCode
+
+# Investigate suspicious IP: 192.168.1.20
+index=main sourcetype="windows_test_logs" src_ip="192.168.1.20"
+| stats count by user, EventCode
+
+# full table of events
+index=main sourcetype="windows_test_logs" src_ip="192.168.1.20"
+| table _time, user, EventCode, src_ip, host
