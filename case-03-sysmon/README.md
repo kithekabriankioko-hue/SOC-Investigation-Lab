@@ -65,11 +65,7 @@ So I treated it as suspicious.
 
 It looks like something that could be:
 
-a script being run silently
-
-or someone trying to hide what they’re doing
-
-
+a script being run silently or someone trying to hide what they’re doing
 
 # What I Checked
 
@@ -89,8 +85,7 @@ I would isolate the machine
 
 Investigate the PowerShell command
 
-Check for other related activity
-
+Check for other related activity on the host or network
 
 # What I Learned
 

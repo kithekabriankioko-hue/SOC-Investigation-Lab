@@ -103,3 +103,20 @@ Each case follows a general SOC workflow:
 - SIEM querying (Splunk SPL)  
 - Incident reporting and documentation  
 
+
+## Projects
+
+Alongside my SOC case studies, I am also building practical simulations based on real-world security operations experience.
+
+### Security Operations Workflow Simulator
+
+A SOC-inspired incident workflow system designed to simulate how security incidents are reported, escalated, tracked, and resolved in real operational environments.
+
+This project focuses on:
+- Incident lifecycle management
+- Security operations workflows
+- Dispatch and response simulation
+- Operational visibility and tracking
+
+See folder: `Projects/Security Operations Workflow Simulator`
+
